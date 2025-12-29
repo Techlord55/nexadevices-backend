@@ -187,7 +187,7 @@ class ProductAdmin(admin.ModelAdmin):
                 '<img src="{}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />',
                 primary.image.url
             )
-        return format_html('<div style="width: 60px; height: 60px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px;">📷</div>')
+        return mark_safe('<div style="width: 60px; height: 60px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px;">📷</div>')
     primary_image_preview.short_description = 'Image'
     
     def price_display(self, obj):
@@ -205,7 +205,7 @@ class ProductAdmin(admin.ModelAdmin):
     
     def stock_status(self, obj):
         if obj.stock == 0:
-            return format_html(
+            return mark_safe(
                 '<span style="background: #e74c3c; color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold;">OUT OF STOCK</span>'
             )
         elif obj.stock < 5:
@@ -221,10 +221,10 @@ class ProductAdmin(admin.ModelAdmin):
     
     def featured_badge(self, obj):
         if obj.featured:
-            return format_html(
+            return mark_safe(
                 '<span style="background: #3498db; color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold;">⭐ FEATURED</span>'
             )
-        return format_html('<span style="color: #999;">—</span>')
+        return mark_safe('<span style="color: #999;">—</span>')
     featured_badge.short_description = 'Featured'
     
     # ========== Readonly Field Methods ==========
@@ -241,7 +241,7 @@ class ProductAdmin(admin.ModelAdmin):
                 '</div>',
                 primary.image.url
             )
-        return format_html(
+        return mark_safe(
             '<div style="padding: 40px; text-align: center; background: #f9f9f9; border-radius: 8px; color: #999;">'
             '<div style="font-size: 48px; margin-bottom: 10px;">📷</div>'
             '<p>No images uploaded yet</p>'
