@@ -30,7 +30,7 @@ urlpatterns = [
     # Webhooks
     path('api/webhooks/stripe/', stripe_webhook, name='stripe-webhook'),
     path('api/webhooks/clerk/', clerk_webhook, name='clerk-webhook'),
-    
+    path('api/contact/', include('contact.urls')),
     # Health check endpoint
     path('health/', include('health.urls')),
     

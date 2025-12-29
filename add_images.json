@@ -1,0 +1,10 @@
+[
+  {
+    "sku": "DRONE-001",
+    "images": ["drone-001-1.jpg", "drone-001-2.jpg"]
+  },
+  {
+    "sku": "LAPTOP-001",
+    "images": ["laptop-001-1.jpg", "laptop-001-2.jpg"]
+  }
+]

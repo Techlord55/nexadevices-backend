@@ -2,6 +2,7 @@
 import os
 from pathlib import Path
 from decouple import config
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -61,6 +62,7 @@ INSTALLED_APPS = [
     'payments',
     'cloudinary',
     'cloudinary_storage',
+    'contact',
 ]
 
 # Custom User Model
@@ -76,7 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'users.middleware.RateLimitMiddleware',  # Custom rate limiting
+    'users.middleware.RateLimitMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -99,24 +101,33 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# Database
+# ============================================================================
+# SUPABASE POSTGRESQL DATABASE CONFIGURATION
+# ============================================================================
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME', default='postgres'),
+        'USER': config('DB_USER', default='postgres'),
         'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='3306'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', default='5432'),
         'OPTIONS': {
-            'charset': 'utf8mb4',
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': {'ssl-mode': 'PREFERRED'} if not DEBUG else {},
+            'sslmode': 'require',  # Supabase requires SSL
         },
         'CONN_MAX_AGE': 600,  # Connection pooling
         'ATOMIC_REQUESTS': True,  # Wrap views in transactions
     }
 }
+
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL'),
+#         conn_max_age=600,
+#         conn_health_checks=True,
+#     )
+# }
 
 # Password Hashing - Use Argon2 for better security
 PASSWORD_HASHERS = [
@@ -167,6 +178,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Add this for custom admin static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files - Using Cloudinary
@@ -207,6 +224,8 @@ EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL', EMAIL_HOST_USER)
+
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='noreply@nexadevices.com')
 
 # Admin email for error notifications
