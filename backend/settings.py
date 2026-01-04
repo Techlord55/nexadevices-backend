@@ -179,9 +179,15 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files - Using Cloudinary
+# Replace the Media files section in backend/settings.py (around line 176-188)
+
+# ============================================================================
+# MEDIA FILES CONFIGURATION - ALWAYS USE CLOUDINARY
+# ============================================================================
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media'  # Fallback only, not used
+
+# Always use Cloudinary for media storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Cloudinary Configuration
@@ -192,6 +198,17 @@ CLOUDINARY_STORAGE = {
     'SECURE': True,
     'TIMEOUT': 60,
 }
+
+# Optional: Configure Cloudinary transformation defaults
+import cloudinary
+cloudinary.config(
+    cloud_name=config('CLOUDINARY_CLOUD_NAME'),
+    api_key=config('CLOUDINARY_API_KEY'),
+    api_secret=config('CLOUDINARY_API_SECRET'),
+    secure=True
+)
+
+print("☁️  Cloudinary configured:", config('CLOUDINARY_CLOUD_NAME'))
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
