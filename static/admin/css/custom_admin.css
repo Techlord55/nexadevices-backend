@@ -1,0 +1,789 @@
+/* static/admin/css/custom_admin.css */
+
+/* ============================================================================
+   PRODUCT IMAGE INLINE STYLING
+   ============================================================================ */
+
+/* Make image preview cells wider */
+.inline-related .field-image_preview {
+    width: 120px !important;
+}
+
+/* Style the image upload area */
+.inline-related input[type="file"] {
+    padding: 10px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.inline-related input[type="file"]:hover {
+    border-color: #3498db;
+    background: #e3f2fd;
+}
+
+/* Drag and drop effect */
+.inline-related input[type="file"]:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* ============================================================================
+   PRODUCT LIST IMPROVEMENTS - FIXED HOVER & ROW COLORS
+   ============================================================================ */
+
+/* Better spacing for list display */
+#changelist .results tbody tr {
+    height: 80px;
+    transition: all 0.2s ease;
+    background-color: #ffffff !important;
+}
+
+#changelist .results tbody td {
+    vertical-align: middle;
+    padding: 12px 10px;
+    border-right: 1px solid #f0f0f0;
+}
+
+#changelist .results tbody td:last-child {
+    border-right: none;
+}
+
+/* Alternating row colors */
+#changelist .results tbody tr:nth-child(even) {
+    background-color: #f9f9f9 !important;
+}
+
+#changelist .results tbody tr:nth-child(odd) {
+    background-color: #ffffff !important;
+}
+
+/* FIXED HOVER - Blue background with dark text visible */
+#changelist .results tbody tr:hover {
+    background-color: #d4e9f7 !important;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+
+#changelist .results tbody tr:hover td {
+    color: #000000 !important;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] #changelist .results tbody tr,
+.theme-dark #changelist .results tbody tr {
+    background-color: #1e1e1e !important;
+}
+
+[data-theme="dark"] #changelist .results tbody tr:nth-child(even),
+.theme-dark #changelist .results tbody tr:nth-child(even) {
+    background-color: #252525 !important;
+}
+
+[data-theme="dark"] #changelist .results tbody tr:hover,
+.theme-dark #changelist .results tbody tr:hover {
+    background-color: #2d3748 !important;
+}
+
+[data-theme="dark"] #changelist .results tbody tr:hover td,
+.theme-dark #changelist .results tbody tr:hover td {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] #changelist .results tbody td,
+.theme-dark #changelist .results tbody td {
+    border-right-color: #333;
+}
+
+/* ============================================================================
+   TABLE COLUMN WIDTH FIXES - PROPER EXPANSION
+   ============================================================================ */
+
+/* Make sure table takes full width */
+#changelist .results table {
+    width: 100% !important;
+    table-layout: auto !important;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Set minimum widths for each column */
+#changelist .results th:first-child,
+#changelist .results td:first-child {
+    width: 40px !important; /* Checkbox */
+    min-width: 40px !important;
+}
+
+/* Image column */
+#changelist .results th:nth-child(2),
+#changelist .results td:nth-child(2) {
+    width: 80px !important;
+    min-width: 80px !important;
+}
+
+/* Product name */
+#changelist .results th:nth-child(3),
+#changelist .results td:nth-child(3) {
+    min-width: 250px !important;
+    width: auto !important;
+}
+
+/* Category */
+#changelist .results th:nth-child(4),
+#changelist .results td:nth-child(4) {
+    min-width: 120px !important;
+    width: auto !important;
+}
+
+/* Price */
+#changelist .results th:nth-child(5),
+#changelist .results td:nth-child(5) {
+    min-width: 150px !important;
+    width: auto !important;
+}
+
+/* Stock */
+#changelist .results th:nth-child(6),
+#changelist .results td:nth-child(6) {
+    min-width: 130px !important;
+    width: auto !important;
+}
+
+/* Featured */
+#changelist .results th:nth-child(7),
+#changelist .results td:nth-child(7) {
+    min-width: 120px !important;
+    width: auto !important;
+}
+
+/* Is Active */
+#changelist .results th:nth-child(8),
+#changelist .results td:nth-child(8) {
+    min-width: 80px !important;
+    width: auto !important;
+    text-align: center;
+}
+
+/* Created at */
+#changelist .results th:nth-child(9),
+#changelist .results td:nth-child(9) {
+    min-width: 160px !important;
+    width: auto !important;
+}
+
+/* Table header styling */
+#changelist .results thead th {
+    position: sticky;
+    top: 0;
+    background: #f5f5f5 !important;
+    z-index: 10;
+    padding: 12px 10px;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
+    white-space: nowrap;
+}
+
+/* Dark mode table header */
+[data-theme="dark"] #changelist .results thead th,
+.theme-dark #changelist .results thead th {
+    background: #2a2a2a !important;
+    border-bottom-color: #444;
+    color: #e0e0e0;
+}
+
+/* ============================================================================
+   FIELDSET IMPROVEMENTS
+   ============================================================================ */
+
+/* Better fieldset styling */
+.module h2, .module caption {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+fieldset.module {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+/* Dark mode fieldset */
+[data-theme="dark"] fieldset.module,
+.theme-dark fieldset.module {
+    border-color: #3a3a3a;
+    background: #1a1a1a;
+}
+
+/* Collapse fieldsets */
+fieldset.collapse h2 {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+}
+
+/* ============================================================================
+   INLINE TABLES - IMPROVED BACKGROUND
+   ============================================================================ */
+
+/* Product images inline */
+.inline-group .tabular {
+    overflow: visible;
+}
+
+.inline-group .tabular tbody tr {
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s ease;
+}
+
+.inline-group .tabular tbody tr:hover {
+    background: #f0f4f8 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Dark mode inline tables */
+[data-theme="dark"] .inline-group .tabular tbody tr,
+.theme-dark .inline-group .tabular tbody tr {
+    background: #2a2a2a;
+    border-bottom-color: #3a3a3a;
+}
+
+[data-theme="dark"] .inline-group .tabular tbody tr:hover,
+.theme-dark .inline-group .tabular tbody tr:hover {
+    background: #333333 !important;
+}
+
+/* Add product image button styling */
+.inline-group .add-row a {
+    background: #3498db;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.inline-group .add-row a:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* ============================================================================
+   FORM FIELD IMPROVEMENTS
+   ============================================================================ */
+
+/* Better text areas */
+textarea {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Dark mode text areas */
+[data-theme="dark"] textarea,
+.theme-dark textarea {
+    background: #2a2a2a;
+    border-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+/* Better input fields */
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Dark mode inputs */
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] input[type="email"],
+.theme-dark input[type="text"],
+.theme-dark input[type="number"],
+.theme-dark input[type="email"] {
+    background: #2a2a2a;
+    border-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+/* ============================================================================
+   SUBMIT BUTTONS
+   ============================================================================ */
+
+.submit-row {
+    padding: 15px 20px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Dark mode submit row */
+[data-theme="dark"] .submit-row,
+.theme-dark .submit-row {
+    background: #1a1a1a;
+    border-top-color: #3a3a3a;
+}
+
+.submit-row input[type="submit"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.submit-row input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.submit-row input[type="submit"].default {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+/* ============================================================================
+   HELP TEXT
+   ============================================================================ */
+
+.help {
+    color: #666;
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Dark mode help text */
+[data-theme="dark"] .help,
+.theme-dark .help {
+    color: #999;
+}
+
+/* ============================================================================
+   CHECKBOX STYLING
+   ============================================================================ */
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* ============================================================================
+   ADMIN HEADER
+   ============================================================================ */
+
+#header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#branding h1 {
+    color: white;
+}
+
+/* ============================================================================
+   PAGINATION
+   ============================================================================ */
+
+.paginator {
+    font-size: 13px;
+    padding: 15px 0;
+}
+
+.paginator a {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 2px;
+    transition: all 0.2s ease;
+}
+
+.paginator a:hover {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* Dark mode pagination */
+[data-theme="dark"] .paginator a,
+.theme-dark .paginator a {
+    border-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+/* ============================================================================
+   FILTERS SIDEBAR - FIXED GRAY BACKGROUND
+   ============================================================================ */
+
+/* Main filter container - GRAY background */
+#changelist-filter {
+    background: #e8eaf0 !important;
+    border-left: 1px solid #d0d0d0;
+    box-shadow: -2px 0 4px rgba(0,0,0,0.05);
+    padding: 0;
+}
+
+/* Filter title */
+#changelist-filter h2 {
+    background: #d6d9e3 !important;
+    color: #1a1a1a !important;
+    padding: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #c0c4d0;
+    margin: 0;
+}
+
+/* Filter section headers (like "By category") */
+#changelist-filter h3 {
+    background: #dde0e8 !important;
+    color: #2c2c2c !important;
+    padding: 12px 15px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 13px;
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+/* Filter list items */
+#changelist-filter ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: #f5f6fa !important;
+}
+
+#changelist-filter li {
+    padding: 10px 15px;
+    transition: background 0.2s ease;
+    background: #f5f6fa !important;
+    border-bottom: 1px solid #e5e7f0;
+}
+
+#changelist-filter li:hover {
+    background: #c8d6f5 !important;
+}
+
+#changelist-filter li.selected {
+    background: #b3d4fc !important;
+    font-weight: 600;
+    border-left: 4px solid #3498db;
+}
+
+#changelist-filter li.selected a {
+    color: #1565c0 !important;
+}
+
+#changelist-filter a {
+    color: #333 !important;
+    text-decoration: none;
+}
+
+#changelist-filter a:hover {
+    color: #2980b9 !important;
+}
+
+/* Dark mode filters */
+[data-theme="dark"] #changelist-filter,
+.theme-dark #changelist-filter {
+    background: #1a1a1a !important;
+    border-left-color: #3a3a3a;
+}
+
+[data-theme="dark"] #changelist-filter h2,
+.theme-dark #changelist-filter h2 {
+    background: #252525 !important;
+    color: #e0e0e0 !important;
+    border-bottom-color: #3a3a3a;
+}
+
+[data-theme="dark"] #changelist-filter h3,
+.theme-dark #changelist-filter h3 {
+    background: #202020 !important;
+    color: #b0b0b0 !important;
+    border-color: #333;
+}
+
+[data-theme="dark"] #changelist-filter ul,
+.theme-dark #changelist-filter ul {
+    background: #1e1e1e !important;
+}
+
+[data-theme="dark"] #changelist-filter li,
+.theme-dark #changelist-filter li {
+    background: #1e1e1e !important;
+    border-bottom-color: #2a2a2a;
+}
+
+[data-theme="dark"] #changelist-filter li:hover,
+.theme-dark #changelist-filter li:hover {
+    background: #2d3748 !important;
+}
+
+[data-theme="dark"] #changelist-filter li.selected,
+.theme-dark #changelist-filter li.selected {
+    background: #1e3a5f !important;
+}
+
+[data-theme="dark"] #changelist-filter a,
+.theme-dark #changelist-filter a {
+    color: #d0d0d0 !important;
+}
+
+/* ============================================================================
+   RESPONSIVE IMPROVEMENTS
+   ============================================================================ */
+
+@media (max-width: 1200px) {
+    /* Make the changelist scrollable horizontally */
+    #changelist .results {
+        overflow-x: auto;
+        display: block;
+    }
+    
+    #changelist table {
+        min-width: 1400px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Stack images vertically on mobile */
+    .inline-related .field-image_preview {
+        width: 100% !important;
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .inline-related .field-image_preview img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 200px;
+    }
+    
+    /* Hide filter sidebar on mobile, make it a dropdown */
+    #changelist-filter {
+        position: relative;
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+        margin-top: 20px;
+    }
+    
+    /* Better mobile fieldsets */
+    fieldset.module {
+        margin: 10px 0;
+    }
+    
+    /* Mobile submit buttons */
+    .submit-row {
+        position: sticky;
+        bottom: 0;
+        z-index: 100;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small screens */
+    .inline-related {
+        padding: 10px 5px;
+    }
+    
+    .submit-row input[type="submit"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    /* Stack action buttons vertically */
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .actions select,
+    .actions button {
+        width: 100%;
+    }
+}
+
+/* ============================================================================
+   ACTION BAR
+   ============================================================================ */
+
+.actions {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Dark mode actions */
+[data-theme="dark"] .actions,
+.theme-dark .actions {
+    background: #1a1a1a;
+}
+
+.actions select {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+/* Dark mode select */
+[data-theme="dark"] .actions select,
+.theme-dark .actions select {
+    background: #2a2a2a;
+    border-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.actions button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.actions button:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+/* ============================================================================
+   LOADING SPINNER FOR IMAGE UPLOAD
+   ============================================================================ */
+
+.image-uploading {
+    position: relative;
+}
+
+.image-uploading::after {
+    content: "Uploading...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(52, 152, 219, 0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ============================================================================
+   JSON FIELD STYLING
+   ============================================================================ */
+
+.jsoneditor-field,
+.jsoneditor-value {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
+    font-size: 13px !important;
+}
+
+/* ============================================================================
+   SUCCESS/ERROR MESSAGES
+   ============================================================================ */
+
+.messagelist li.success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    border-radius: 6px;
+    color: white;
+}
+
+.messagelist li.error {
+    background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+    border: none;
+    border-radius: 6px;
+    color: white;
+}
+
+.messagelist li.warning {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+    border-radius: 6px;
+    color: white;
+}
+
+/* ============================================================================
+   TABLE RESPONSIVE WRAPPER
+   ============================================================================ */
+
+/* Wrap the results table in a scrollable container */
+#changelist-form .results {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Better scrollbar styling */
+#changelist-form .results::-webkit-scrollbar {
+    height: 12px;
+}
+
+#changelist-form .results::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#changelist-form .results::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 10px;
+}
+
+#changelist-form .results::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* Dark mode scrollbar */
+[data-theme="dark"] #changelist-form .results::-webkit-scrollbar-track,
+.theme-dark #changelist-form .results::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+[data-theme="dark"] #changelist-form .results::-webkit-scrollbar-thumb,
+.theme-dark #changelist-form .results::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+[data-theme="dark"] #changelist-form .results::-webkit-scrollbar-thumb:hover,
+.theme-dark #changelist-form .results::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
