@@ -130,3 +130,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Utility/Debug Scripts (not needed in production)
+add_product_images.py
+delete_product_images.py
+test_*.py
+debug_*.py
+views_optimized.py
+check_product_images.py
+
